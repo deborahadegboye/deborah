@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Deborah Adegboye - Aspiring Software Developer, Creative Thinker and Technology Enthusiast.">
+    <title>Deborah Adegboye | Developer Portfolio</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+
+        :root {
+            --bg: #09090f;
+            --surface: #11111c;
+            --card: #151522;
+            --purple: #a78bfa;
+            --purple-light: #c4b5fd;
+            --white: #ffffff;
+            --muted: #a1a1b5;
+            --border: rgba(255,255,255,0.09);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(9,9,15,0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            min-height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--purple);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--purple-light);
+        }
+
+        .nav-btn {
+            padding: 11px 20px;
+            border: 1px solid var(--purple);
+            border-radius: 30px;
+            color: var(--purple-light);
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: var(--purple);
+            color: #09090f;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 130px 0 80px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: var(--purple);
+            filter: blur(180px);
+            opacity: 0.12;
+            right: 5%;
+            top: 20%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 780px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(167,139,250,0.09);
+            border: 1px solid rgba(167,139,250,0.2);
+            padding: 9px 17px;
+            border-radius: 30px;
+            font-size: 12px;
+            color: var(--purple-light);
+            margin-bottom: 30px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #7ee6a5;
+            border-radius: 50%;
+            box-shadow: 0 0 12px #7ee6a5;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(48px, 8vw, 88px);
+            line-height: 1.1;
+            letter-spacing: -3px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: var(--purple);
+        }
+
+        .hero p {
+            max-width: 590px;
+            color: var(--muted);
+            font-size: 16px;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--purple);
+            color: #100d19;
+        }
+
+        .btn-primary:hover {
+            background: var(--purple-light);
+            transform: translateY(-4px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--purple);
+            color: var(--purple-light);
+        }
+
+        .hero-bottom {
+            margin-top: 90px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .hero-bottom strong {
+            display: block;
+            font-size: 21px;
+        }
+
+        .hero-bottom small {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-label {
+            color: var(--purple);
+            font-size: 12px;
+            letter-spacing: 3px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 48px);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            color: var(--muted);
+            max-width: 600px;
+            font-size: 15px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: var(--surface);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 65px;
+            align-items: center;
+        }
+
+        .about-visual {
+            min-height: 370px;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            background:
+                radial-gradient(circle at 50% 40%, rgba(167,139,250,.25), transparent 55%),
+                linear-gradient(145deg, #1b1830, #10101a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-initial {
+            font-family: 'Playfair Display', serif;
+            font-size: 150px;
+            color: var(--purple);
+            opacity: 0.9;
+        }
+
+        .about-tag {
+            position: absolute;
+            bottom: 25px;
+            background: rgba(255,255,255,0.07);
+            padding: 10px 18px;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            font-size: 12px;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin: 20px 0;
+            font-size: 15px;
+        }
+
+        .about-highlight {
+            color: var(--purple-light);
+            font-weight: 700;
+        }
+
+        /* SKILLS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-top: 45px;
+        }
+
+        .skill-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 25px 12px;
+            border-radius: 12px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: var(--purple);
+            transform: translateY(-7px);
+            background: #1d1a2d;
+        }
+
+        .skill-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .skill-card h3 {
+            font-size: 13px;
+        }
+
+        .skill-card p {
+            font-size: 10px;
+            color: var(--muted);
+            margin-top: 5px;
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            background: var(--surface);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 45px;
+        }
+
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--purple);
+        }
+
+        .project-image {
+            height: 210px;
+            background: linear-gradient(135deg, #292044, #11111c);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 65px;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .project-tech span {
+            font-size: 10px;
+            color: var(--purple-light);
+            background: rgba(167,139,250,0.1);
+            padding: 6px 10px;
+            border-radius: 5px;
+        }
+
+        /* LEARNING */
+
+        .learning-box {
+            margin-top: 40px;
+            padding: 35px;
+            border-radius: 15px;
+            background: linear-gradient(120deg, #201a35, #141321);
+            border: 1px solid rgba(167,139,250,0.2);
+        }
+
+        .learning-box h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .learning-box p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: var(--surface);
+            text-align: center;
+        }
+
+        .contact .section-description {
+            margin: auto;
+        }
+
+        .contact-card {
+            max-width: 650px;
+            margin: 40px auto 0;
+            padding: 40px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .contact-card p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .contact-links a {
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            padding: 12px 18px;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .contact-links a:hover {
+            color: var(--purple-light);
+            border-color: var(--purple);
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 30px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        footer span {
+            color: var(--purple);
+        }
+
+        /* ANIMATIONS */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            animation: fadeUp 1s ease forwards;
+        }
+
+        /* MOBILE RESPONSIVENESS */
+
+        @media(max-width: 850px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .nav-links {
+                gap: 13px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+        }
+
+        @media(max-width: 600px) {
+            .container {
+                width: 90%;
+            }
+
+            nav {
+                min-height: 70px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-btn {
+                padding: 9px 13px;
+                font-size: 11px;
+            }
+
+            .hero {
+                min-height: 90vh;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero-bottom {
+                gap: 25px;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-visual {
+                min-height: 280px;
+            }
+
+            .about-initial {
+                font-size: 110px;
+            }
+
+            .contact-card {
+                padding: 25px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">Deborah<span>.</span></a>
+
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+                <a href="#contact" class="nav-btn">Let's Talk ↗</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+
+                <div class="availability">
+                    <span class="dot"></span>
+                    Student Developer · Growing Every Day
+                </div>
+
+                <h1>
+                    Hello, I'm<br>
+                    <span>Deborah</span><br>
+                    Adegboye.
+                </h1>
+
+                <p>
+                    An aspiring software developer passionate about
+                    technology, creativity, and building beautiful
+                    digital experiences. I'm learning, creating,
+                    and turning ideas into reality one line of code
+                    at a time.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        Explore My Work ↗
+                    </a>
+
+                    <a href="#about" class="btn btn-outline">
+                        Discover More
+                    </a>
+                </div>
+
+                <div class="hero-bottom">
+                    <div>
+                        <strong>10+</strong>
+                        <small>Technologies Learning</small>
+                    </div>
+
+                    <div>
+                        <strong>∞</strong>
+                        <small>Ideas to Explore</small>
+                    </div>
+
+                    <div>
+                        <strong>100%</strong>
+                        <small>Passion for Learning</small>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+
+                <div class="about-visual">
+                    <div class="about-initial">D.</div>
+                    <div class="about-tag">
+                        ✨ Creativity meets Technology
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <div class="section-label">01 / ABOUT ME</div>
+
+                    <h2 class="section-title">
+                        More Than Just<br>
+                        <span style="color:#a78bfa;">A Student.</span>
+                    </h2>
+
+                    <p>
+                        My name is Deborah Adegboye. I am a student
+                        and an aspiring software developer with a
+                        genuine passion for technology and innovation.
+                    </p>
+
+                    <p>
+                        I'm currently exploring different areas of
+                        programming, including web development,
+                        software development, and mobile application
+                        development.
+                    </p>
+
+                    <p>
+                        I believe that every great developer starts
+                        somewhere. My journey is built on
+                        <span class="about-highlight">
+                        curiosity, consistency, creativity, and a
+                        willingness to learn.</span>
+                    </p>
+
+                    <a href="#skills" class="btn btn-primary">
+                        View My Skills →
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <div class="container">
+
+            <div class="section-label">02 / MY EXPERTISE</div>
+
+            <h2 class="section-title">
+                Technologies I'm <span style="color:#a78bfa;">Learning.</span>
+            </h2>
+
+            <p class="section-description">
+                These are the programming languages and technologies
+                I'm currently exploring and improving my skills in.
+            </p>
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    <div class="skill-icon">🌐</div>
+                    <h3>HTML</h3>
+                    <p>Web Structure</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>CSS</h3>
+                    <p>Web Styling</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">⚡</div>
+                    <h3>JavaScript</h3>
+                    <p>Web Programming</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🐍</div>
+                    <h3>Python</h3>
+                    <p>Programming</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🔧</div>
+                    <h3>C Language</h3>
+                    <p>Programming</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">☕</div>
+                    <h3>Java</h3>
+                    <p>Programming</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🐘</div>
+                    <h3>PHP</h3>
+                    <p>Backend Development</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🎯</div>
+                    <h3>Django</h3>
+                    <p>Python Framework</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">📱</div>
+                    <h3>React Native</h3>
+                    <p>Mobile Development</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Dart</h3>
+                    <p>Programming</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="projects" id="projects">
+        <div class="container">
+
+            <div class="section-label">03 / MY PORTFOLIO</div>
+
+            <h2 class="section-title">
+                Projects & <span style="color:#a78bfa;">Creations.</span>
+            </h2>
+
+            <p class="section-description">
+                Every project is an opportunity to learn,
+                experiment, and improve. Here are some projects
+                I plan to showcase as I grow.
+            </p>
+
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <div class="project-image">💻</div>
+
+                    <div class="project-content">
+                        <h3>Personal Portfolio</h3>
+
+                        <p>
+                            A modern personal website showcasing
+                            my skills, interests, and journey as
+                            an aspiring developer.
+                        </p>
+
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🌐</div>
+
+                    <div class="project-content">
+                        <h3>Creative Web Design</h3>
+
+                        <p>
+                            Exploring creative website layouts,
+                            responsive designs, and modern user
+                            interface concepts.
+                        </p>
+
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">📱</div>
+
+                    <div class="project-content">
+                        <h3>Mobile App Concepts</h3>
+
+                        <p>
+                            Learning how to create mobile
+                            application interfaces and exploring
+                            cross-platform development.
+                        </p>
+
+                        <div class="project-tech">
+                            <span>React Native</span>
+                            <span>Dart</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🐍</div>
+
+                    <div class="project-content">
+                        <h3>Programming Practice</h3>
+
+                        <p>
+                            Developing problem-solving skills
+                            through programming exercises and
+                            small coding projects.
+                        </p>
+
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>C</span>
+                            <span>Java</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LEARNING JOURNEY -->
+    <section id="journey">
+        <div class="container">
+
+            <div class="section-label">04 / MY JOURNEY</div>
+
+            <h2 class="section-title">
+                Always Learning.<br>
+                <span style="color:#a78bfa;">Always Growing.</span>
+            </h2>
+
+            <div class="learning-box">
+                <h3>My Developer Journey 🚀</h3>
+
+                <p>
+                    I'm continuously working towards becoming a
+                    well-rounded software developer. Every day,
+                    I challenge myself to understand new concepts,
+                    write better code, and build meaningful projects.
+                    My journey is just beginning, and I'm excited
+                    about what the future holds.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+        <div class="container">
+
+            <div class="section-label">05 / GET IN TOUCH</div>
+
+            <h2 class="section-title">
+                Let's Create Something<br>
+                <span style="color:#a78bfa;">Amazing Together.</span>
+            </h2>
+
+            <p class="section-description">
+                I'm always happy to connect with fellow developers,
+                students, creatives, and technology enthusiasts.
+                Let's learn, share ideas, and grow together.
+            </p>
+
+            <div class="contact-card">
+
+                <h3>Have an idea or opportunity?</h3>
+
+                <p>
+                    Feel free to reach out. I'd love to hear from you!
+                </p>
+
+                <div class="contact-links">
+
+                    <!-- Replace with your actual email -->
+                    <a href="mailto:YOUR_EMAIL@example.com">
+                        ✉ Email Me
+                    </a>
+
+                    <!-- Replace with your actual GitHub username -->
+                    <a href="https://github.com/YOUR_GITHUB_USERNAME"
+                       target="_blank">
+                        💻 GitHub
+                    </a>
+
+                    <!-- Replace with your LinkedIn profile -->
+                    <a href="https://www.linkedin.com/in/YOUR_LINKEDIN"
+                       target="_blank">
+                        🔗 LinkedIn
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>
+                © 2026 <span>Deborah Adegboye</span>.
+                Designed with passion and creativity. ❤️
+            </p>
+
+            <p>Keep learning. Keep building. Keep growing.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
